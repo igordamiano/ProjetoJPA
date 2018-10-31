@@ -2,22 +2,34 @@ package br.com.algaworks.dominio;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "TAB_VEICULO")
 public class Veiculo {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(length = 60, nullable = false)
 	private String fabricante;
+	
+	@Column(length = 60, nullable = false)
 	private String modelo;
+	
+	@Column(name = "ANO_FABRICACAO", nullable = false)
 	private Integer anoFabricacao;
+	
+	@Column(name = "ANO_MODELO", nullable = false)
 	private Integer anoModelo;
+	
+	@Column(precision = 10, scale = 2, nullable = true)
 	private BigDecimal valor;
 
 	public Long getId() {
