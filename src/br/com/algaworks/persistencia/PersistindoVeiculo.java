@@ -20,10 +20,10 @@ public class PersistindoVeiculo {
 		
 		Veiculo veiculo = new Veiculo();
 		veiculo.setFabricante("Honda");
-		veiculo.setModelo("Civic");
-		veiculo.setAnoFabricacao(2012);
-		veiculo.setAnoModelo(2013);
-		veiculo.setValor(new BigDecimal(71300));
+		veiculo.setModelo("City");
+		veiculo.setAnoFabricacao(2018);
+		veiculo.setAnoModelo(2019);
+		veiculo.setValor(new BigDecimal(99300));
 		
 		manager.persist(veiculo);
 		tx.commit();
