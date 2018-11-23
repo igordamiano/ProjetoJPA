@@ -1,4 +1,4 @@
-package br.com.algaworks.pesquisa;
+package br.com.algaworks.lista;
 
 import java.util.List;
 
@@ -24,6 +24,8 @@ public class ListandoVeiculos {
 					+ veiculo.getAnoFabricacao() + "/" + veiculo.getAnoModelo() + " por " + "R$" + veiculo.getValor());
 			
 		}
+		manager.close();
+		JpaUtil.close();
 		
 	}
 
