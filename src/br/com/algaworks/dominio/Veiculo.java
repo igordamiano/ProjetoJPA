@@ -4,10 +4,14 @@ import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import br.com.algaworks.enums.TipoCombustivel;
 
 @Entity
 @Table(name = "TAB_VEICULO")
@@ -31,6 +35,10 @@ public class Veiculo {
 	
 	@Column(precision = 10, scale = 2, nullable = true)
 	private BigDecimal valor;
+	
+	@Column(name = "tipo_combustivel", nullable = false)
+	@Enumerated(EnumType.STRING)
+	private TipoCombustivel tipoCombustivel;
 
 	public Long getId() {
 		return id;
@@ -105,6 +113,12 @@ public class Veiculo {
 		return true;
 	}
 
+	public TipoCombustivel getTipoCombustivel() {
+		return tipoCombustivel;
+	}
 
+	public void setTipoCombustivel(TipoCombustivel tipoCombustivel) {
+		this.tipoCombustivel = tipoCombustivel;
+	}
 
 }
