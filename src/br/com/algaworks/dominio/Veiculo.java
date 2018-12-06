@@ -1,6 +1,7 @@
 package br.com.algaworks.dominio;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +10,10 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import br.com.algaworks.enums.TipoCombustivel;
 
@@ -39,6 +43,13 @@ public class Veiculo {
 	@Column(name = "tipo_combustivel", nullable = false)
 	@Enumerated(EnumType.STRING)
 	private TipoCombustivel tipoCombustivel;
+	
+	@Temporal(TemporalType.DATE)
+	@Column(name = "data_cadastro", nullable = false)
+	private Date dataCadastro;
+	
+	@Lob
+	private String especificacoes;
 
 	public Long getId() {
 		return id;
@@ -121,4 +132,20 @@ public class Veiculo {
 		this.tipoCombustivel = tipoCombustivel;
 	}
 
+	public Date getDataCadastro() {
+		return dataCadastro;
+	}
+
+	public void setDataCadastro(Date dataCadastro) {
+		this.dataCadastro = dataCadastro;
+	}
+
+	public String getEspecificacoes() {
+		return especificacoes;
+	}
+
+	public void setEspecificacoes(String especificacoes) {
+		this.especificacoes = especificacoes;
+	}
+	
 }

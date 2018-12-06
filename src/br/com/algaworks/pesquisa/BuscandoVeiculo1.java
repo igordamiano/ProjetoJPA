@@ -14,6 +14,8 @@ public class BuscandoVeiculo1 {
 		Veiculo veiculo = manager.find(Veiculo.class, 1L);
 		
 		System.out.println("Veículo de código " + veiculo.getId() + " é um " + veiculo.getModelo());
+		System.out.println("-------");
+		System.out.println(veiculo.getEspecificacoes());
 		
 		
 		manager.close();

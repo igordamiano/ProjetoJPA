@@ -1,6 +1,7 @@
 package br.com.algaworks.persistencia;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -19,13 +20,23 @@ public class PersistindoVeiculo {
 		
 		tx.begin();
 		
+		StringBuilder especificacoes = new StringBuilder();
+		especificacoes.append("Carro em excelente estado.\n");
+		especificacoes.append("Completo, menos ar.\n");
+		especificacoes.append("Primeiro dono, com manual de instrução ");
+		especificacoes.append("e todas as revisões feitas.\n");
+		especificacoes.append("IPVA pago, aceita financiamento.");		
+		
+		
 		Veiculo veiculo = new Veiculo();
-		veiculo.setFabricante("Honda");
+		veiculo.setFabricante("Honda - Especificações");
 		veiculo.setModelo("Civic");
 		veiculo.setAnoFabricacao(2005);
 		veiculo.setAnoModelo(2006);
 		veiculo.setValor(new BigDecimal(79900));
 		veiculo.setTipoCombustivel(TipoCombustivel.BICOMBUSTIVEL);
+		veiculo.setDataCadastro(new Date());
+		veiculo.setEspecificacoes(especificacoes.toString());
 		
 		manager.persist(veiculo);
 		tx.commit();
