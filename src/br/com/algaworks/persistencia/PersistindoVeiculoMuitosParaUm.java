@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
 import br.com.algaworks.dominio.ProprietarioMuitosParaUm;
-import br.com.algaworks.dominio.VeiculoMuitosParaUm;
+import br.com.algaworks.dominio.VeiculoMuitosParaMuitos;
 import br.com.algaworks.enums.TipoCombustivel;
 import br.com.algaworks.util.JpaUtil;
 
@@ -37,7 +37,7 @@ public class PersistindoVeiculoMuitosParaUm {
 		especificacoes.append("IPVA pago, aceita financiamento.");		
 		
 		
-		VeiculoMuitosParaUm veiculoMuitosParaUm = new VeiculoMuitosParaUm();
+		VeiculoMuitosParaMuitos veiculoMuitosParaUm = new VeiculoMuitosParaMuitos();
 		veiculoMuitosParaUm.setFabricante("Honda - Especificações");
 		veiculoMuitosParaUm.setModelo("Civic");
 		veiculoMuitosParaUm.setAnoFabricacao(2005);
@@ -51,7 +51,7 @@ public class PersistindoVeiculoMuitosParaUm {
 		manager.persist(veiculoMuitosParaUm);
 		
 
-		VeiculoMuitosParaUm veiculoMuitosParaUm2 = new VeiculoMuitosParaUm();
+		VeiculoMuitosParaMuitos veiculoMuitosParaUm2 = new VeiculoMuitosParaMuitos();
 		veiculoMuitosParaUm2.setFabricante("Honda - mesmo dono");
 		veiculoMuitosParaUm2.setModelo("City");
 		veiculoMuitosParaUm2.setAnoFabricacao(2010);
