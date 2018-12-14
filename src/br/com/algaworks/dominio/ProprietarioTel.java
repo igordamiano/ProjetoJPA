@@ -1,40 +1,58 @@
 package br.com.algaworks.dominio;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ACESSORIO")
-public class Acessorio {
-	
+@Table(name = "TAB_PROPRIETARIO_TELEFONE")
+public class ProprietarioTel {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long codigo;
 	
-	@Column(length = 60, nullable = false)
-	private String descricao;
-
+	private String nome;
+	private String email;
+	
+	@ElementCollection
+	@CollectionTable( name = "proprietario_telefones", joinColumns = @JoinColumn(name = "cod_proprietario"))
+	@Column(name = "numero_telefone", length = 20, nullable = false)
+	private List<String> telefones = new ArrayList<>();
+	
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public Long getCodigo() {
 		return codigo;
 	}
-
 	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
-
-	public String getDescricao() {
-		return descricao;
+	public List<String> getTelefones() {
+		return telefones;
 	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setTelefones(List<String> telefones) {
+		this.telefones = telefones;
 	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -42,7 +60,6 @@ public class Acessorio {
 		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -51,7 +68,7 @@ public class Acessorio {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Acessorio other = (Acessorio) obj;
+		ProprietarioTel other = (ProprietarioTel) obj;
 		if (codigo == null) {
 			if (other.codigo != null)
 				return false;
@@ -59,5 +76,4 @@ public class Acessorio {
 			return false;
 		return true;
 	}
-	
 }
