@@ -1,5 +1,6 @@
 package br.com.algaworks.relacionamento;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +20,7 @@ public class ProdutoEager {
 	@Column(length = 60, nullable = false)
 	private String nome;
 	
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = false, cascade = CascadeType.PERSIST)
 	private CategoriaEager categoria;
 
 	public Long getId() {
