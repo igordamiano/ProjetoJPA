@@ -1,15 +1,13 @@
 package br.com.algaworks.relacionamento.persiste;
 
-import javax.persistence.CascadeType;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.OneToMany;
 
 import br.com.algaworks.relacionamento.CategoriaEager;
 import br.com.algaworks.relacionamento.ProdutoEager;
 import br.com.algaworks.util.JpaUtil;
 
-public class CadastroOperacaoCascata {
+public class CadastroOperacaoCascataPg115 {
 
 	public static void main(String[] args) {
 		
@@ -17,16 +15,17 @@ public class CadastroOperacaoCascata {
 		EntityTransaction tx = manager.getTransaction();
 		tx.begin();
 		
-		//@OneToMany(mappedBy = "categoria", cascade = CascadeType.PERSIST)
+		//@ManyToOne(optional = false, cascade = CascadeType.PERSIST)
 		CategoriaEager categoria = new CategoriaEager();
-		categoria.setNome("Bancos");
+		categoria.setNome("Carnes");
 		
 		ProdutoEager produto = new ProdutoEager();
-		produto.setNome("Banco Inter");
+		produto.setNome("Picanha");
 		produto.setCategoria(categoria);
 		
+		categoria.getProdutos().add(produto);
 		
-		manager.persist(produto);
+		manager.persist(categoria);
 		
 		tx.commit();
 		manager.close();

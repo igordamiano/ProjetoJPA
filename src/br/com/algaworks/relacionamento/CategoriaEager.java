@@ -3,9 +3,9 @@ package br.com.algaworks.relacionamento;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,7 +23,7 @@ public class CategoriaEager {
 	@Column(length = 60, nullable = false)
 	private String nome;
 	
-	@OneToMany(mappedBy = "categoria", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "categoria", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private List<ProdutoEager> produtos = new ArrayList<>();
 
 	public Long getId() {
