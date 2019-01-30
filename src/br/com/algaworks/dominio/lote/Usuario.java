@@ -1,30 +1,24 @@
-package br.com.algaworks.relacionamento;
+package br.com.algaworks.dominio.lote;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "categoria")
-public class CategoriaEager {
-	
+@Table(name = "usuario")
+public class Usuario {
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column(length = 60, nullable = false)
-	private String nome;
-	
-	@OneToMany(mappedBy = "categoria", cascade = CascadeType.PERSIST, orphanRemoval = true)
-	private List<ProdutoEager> produtos = new ArrayList<>();
+
+	@Column(length = 255, nullable = false)
+	private String email;
+
+	private boolean ativo;
 
 	public Long getId() {
 		return id;
@@ -34,20 +28,20 @@ public class CategoriaEager {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public List<ProdutoEager> getProdutos() {
-		return produtos;
+	public boolean isAtivo() {
+		return ativo;
 	}
 
-	public void setProdutos(List<ProdutoEager> produtos) {
-		this.produtos = produtos;
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
 	}
 
 	@Override
@@ -66,7 +60,7 @@ public class CategoriaEager {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		CategoriaEager other = (CategoriaEager) obj;
+		Usuario other = (Usuario) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -74,5 +68,5 @@ public class CategoriaEager {
 			return false;
 		return true;
 	}
-	
+
 }
