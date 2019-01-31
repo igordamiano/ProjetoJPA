@@ -6,10 +6,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 @Entity
 @Table(name = "usuario")
 public class Usuario {
+	
+	//@Version //Locking otimista
+	private Long versao;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -42,6 +46,14 @@ public class Usuario {
 
 	public void setAtivo(boolean ativo) {
 		this.ativo = ativo;
+	}
+
+	public Long getVersao() {
+		return versao;
+	}
+
+	public void setVersao(Long versao) {
+		this.versao = versao;
 	}
 
 	@Override

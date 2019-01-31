@@ -19,7 +19,7 @@ public class PersisteUsuario {
 		u1.setAtivo(true);
 		
 		Usuario u2 = new Usuario();
-		u2.setEmail("joao@hotmail.com");
+		u2.setEmail("maria@hotmail.com");
 		u2.setAtivo(true);
 
 		Usuario u3 = new Usuario();
