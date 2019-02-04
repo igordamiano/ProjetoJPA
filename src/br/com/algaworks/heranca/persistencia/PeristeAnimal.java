@@ -18,13 +18,16 @@ public class PeristeAnimal {
 		tx.begin();
 		
 		Calendar dataNascimento = Calendar.getInstance();
-		dataNascimento.set(2011, 2, 1);
+		dataNascimento.set(2013, 2, 1);
 		Animal animal = new Animal();
-		animal.setNome("Mimosa");
+		animal.setNome("bbbbb");
 		animal.setDataNascimento(dataNascimento.getTime());
-		animal.setDataUltimaAtualizacao(new Date());
+		
+		// Não precisa mais, tem a classe AnimalAuditor
+		//animal.setDataUltimaAtualizacao(new Date());
 		
 		System.out.println("Idade ANTES de persistir: " + animal.getIdade());
+		System.out.println("Data: " + new Date());
 		
 		manager.persist(animal);
 		

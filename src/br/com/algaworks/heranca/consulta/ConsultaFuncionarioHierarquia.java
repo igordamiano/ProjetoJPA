@@ -30,7 +30,8 @@ public class ConsultaFuncionarioHierarquia {
 			
 			
 		}
-		
+		manager.close();
+		JpaUtil.close();
 
 	}
 

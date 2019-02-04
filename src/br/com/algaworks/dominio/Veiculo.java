@@ -45,7 +45,7 @@ public class Veiculo {
 	@Enumerated(EnumType.STRING)
 	private TipoCombustivel tipoCombustivel;
 	
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "data_cadastro", nullable = false)
 	private Date dataCadastro;
 	

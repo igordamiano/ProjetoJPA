@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,8 +16,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
+import br.com.algaworks.auditorentidade.AnimalAuditor;
+
 @Entity
 @Table(name = "animal")
+@EntityListeners(AnimalAuditor.class)
 public class Animal {
 	
 	@Id
@@ -30,8 +34,8 @@ public class Animal {
 	@Column(name = "data_nascimento", nullable = false)
 	private Date dataNascimento;
 	
-	@Temporal(TemporalType.DATE)
 	@Column(name = "data_ultima_atualizacao", nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataUltimaAtualizacao;
 	
 	@Transient
@@ -60,7 +64,7 @@ public class Animal {
 	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
-
+	
 	public Date getDataUltimaAtualizacao() {
 		return dataUltimaAtualizacao;
 	}

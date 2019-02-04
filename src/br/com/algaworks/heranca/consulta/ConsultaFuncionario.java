@@ -30,7 +30,8 @@ public class ConsultaFuncionario {
 			
 			
 		}
-		
+		manager.close();
+		JpaUtil.close();
 
 	}
 

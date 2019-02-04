@@ -30,6 +30,9 @@ public class ConsultaFuncionarioConcreta {
 			
 			
 		}
+
+		manager.close();
+		JpaUtil.close();	
 		
 
 	}
