@@ -36,8 +36,8 @@ public class PersistindoVeiculo {
 		
 		
 		Veiculo veiculo = new Veiculo();
-		veiculo.setFabricante("Honda - Especificações");
-		veiculo.setModelo("Civic");
+		veiculo.setFabricante("Onix");
+		veiculo.setModelo("Chevrolet");
 		veiculo.setAnoFabricacao(2005);
 		veiculo.setAnoModelo(2006);
 		veiculo.setValor(new BigDecimal(79900));
