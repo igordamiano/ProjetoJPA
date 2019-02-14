@@ -23,8 +23,8 @@ public class PersistindoVeiculoUmParaMuitos {
 		
 		ProprietarioUmParaMuitos proprietarioUmParaMuitos = new ProprietarioUmParaMuitos();
 		
-		proprietarioUmParaMuitos.setNome("João das Couves");
-		proprietarioUmParaMuitos.setEmail("joao@dascouves.com");
+		proprietarioUmParaMuitos.setNome("Mateus");
+		proprietarioUmParaMuitos.setEmail("Mateus@dascouves.com");
 		proprietarioUmParaMuitos.setTelefone("(11)990901111");
 		
 		manager.persist(proprietarioUmParaMuitos);

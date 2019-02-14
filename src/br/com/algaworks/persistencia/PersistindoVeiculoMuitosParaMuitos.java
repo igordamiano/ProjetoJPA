@@ -25,7 +25,7 @@ public class PersistindoVeiculoMuitosParaMuitos {
 		// Persiste proprietário
 		ProprietarioMuitosParaUm proprietarioMuitosParaUm = new ProprietarioMuitosParaUm();
 		
-		proprietarioMuitosParaUm.setNome("João das Couves");
+		proprietarioMuitosParaUm.setNome("Igor");
 		proprietarioMuitosParaUm.setEmail("joao@dascouves.com");
 		proprietarioMuitosParaUm.setTelefone("(11)990901111");
 		
