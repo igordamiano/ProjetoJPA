@@ -12,6 +12,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -20,6 +22,11 @@ import br.com.algaworks.enums.TipoCombustivel;
 
 @Entity
 @Table(name = "TAB_VEICULO")
+
+@NamedQueries({
+	@NamedQuery(name = "Veiculo.comProprietarioPorValor", query = "from Veiculo v inner join fetch v.proprietario where v.valor > :valor"),
+	@NamedQuery(name = "Veiculo.porModelo", query = "from Veiculo where modelo like :modelo")
+})
 public class Veiculo {
 
 	@Id
