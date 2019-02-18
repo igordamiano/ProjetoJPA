@@ -5,7 +5,9 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
 		http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name = "locadoraVeiculoPU" transaction-type="RESOURCE_LOCAL">
+		
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<mapping-file>META-INF/consulta/veiculo.xml</mapping-file>
 		
 		<shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
 	
@@ -19,9 +21,8 @@
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
-			
 			<property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory" />
-			
 		</properties>
+		
 	</persistence-unit>
 </persistence>
