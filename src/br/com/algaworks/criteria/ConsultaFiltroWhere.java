@@ -29,7 +29,8 @@ public class ConsultaFiltroWhere {
 		Predicate predicate = builder.not(builder.equal(veiculo.get("tipoCombustivel"), TipoCombustivel.DIESEL));
 		//Predicate predicate = builder.equal(veiculo.get("tipoCombustivel"), TipoCombustivel.DIESEL);
 		
-		criteriaQuery.select(veiculo);
+		// Não precisa passar o select
+		//criteriaQuery.select(veiculo);
 		criteriaQuery.where(predicate);
 		
 		TypedQuery<Veiculo> query = manager.createQuery(criteriaQuery);
